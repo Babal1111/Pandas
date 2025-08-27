@@ -1,5 +1,5 @@
 """
-URL configuration for learning project.
+URL configuration for rpl project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -16,13 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-# from myApp import views
-# from oddEven import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('home/', views.home, name='home'),
-    # path('odd/', views.odd, name='odd'),
-    path('', include('oddEven.urls')),
-
+    path('', include('blog.urls')),
 ]

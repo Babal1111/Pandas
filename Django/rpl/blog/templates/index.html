@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+</head>
+<body>
+    <h1>Check Author</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if author %}
+        <h2>{{ author }} Your blogs:</h2>
+        <ul>
+            {% for blog in blogs %}
+                {% if blog.author == author %}
+                    <li><b>{{ blog.title }}</b> - {{ blog.content }} </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
+    
+
+    {% if author %}
+    <h2>{{ author }} Your blogs:</h2>
+    <ul>
+        {% for blog in blogs %}
+            {% if blog.author == author %}
+                <li>
+                    <b>{{ blog.title }}</b> - {{ blog.content }}
+                    <a href="{% url 'edit_blog' blog.id %}">Edit</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+</body>
+</html>

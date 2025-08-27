@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd-Even Checker</title>
+</head>
+<body>
+    <h1>Odd-Even Checker</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="number" placeholder="Enter a number" value="{{ number|default:'' }}">
+        <button type="submit">Check</button>
+    </form>
+
+    {% if result %}
+        <h3>Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
