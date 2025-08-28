@@ -24,5 +24,6 @@ urlpatterns = [
     # path('home/', views.home, name='home'),
     # path('odd/', views.odd, name='odd'),
     path('', include('oddEven.urls')),
+    path('task/', include('task.urls')),
 
 ]
